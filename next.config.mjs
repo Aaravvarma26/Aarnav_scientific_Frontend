@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const backendUrl = (process.env.BACKEND_URL || "https://api.api.aarnavscientific.co.in").replace(/\/$/, "");
+const backendUrl = (process.env.BACKEND_URL || "https://api.aarnavscientific.co.in").replace(/\/$/, "");
 
 const nextConfig = {
   output: "standalone",
@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com" },
       { protocol: "https", hostname: "**.amazonaws.com" },
-      { protocol: "https", hostname: "api.api.aarnavscientific.co.in" },
+      { protocol: "https", hostname: "api.aarnavscientific.co.in" },
       { protocol: "http", hostname: "localhost" },
     ],
   },
@@ -26,7 +26,7 @@ const nextConfig = {
         { key: "X-Content-Type-Options", value: "nosniff" },
         { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-        { key: "Content-Security-Policy", value: "default-src 'self'; img-src 'self' data: https: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; frame-src 'self' https://www.google.com; connect-src 'self' https://api.api.aarnavscientific.co.in https://www.google-analytics.com;" },
+        { key: "Content-Security-Policy", value: "default-src 'self'; img-src 'self' data: https: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; frame-src 'self' https://www.google.com; connect-src 'self' https://api.aarnavscientific.co.in https://www.google-analytics.com;" },
       ],
     }];
   },
