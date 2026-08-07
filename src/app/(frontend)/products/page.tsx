@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Image from "next/image";
 import { prisma } from "@/common/prisma";
 import { ProductCard } from "@/components/frontend/product/product-card";
 import { ProductFilters } from "@/components/frontend/product/product-filters";
 import { Pagination } from "@/components/common/pagination";
-import { FlaskConical, Download, FileText } from "lucide-react";
+import { FlaskConical, Download } from "lucide-react";
 import type { Prisma } from "@prisma/client";
 
 export const metadata: Metadata = {
@@ -85,19 +86,24 @@ export default async function ProductsPage({
             <a
               href={catalogueUrl}
               download
-              className="card-surface flex w-full shrink-0 items-center gap-4 p-5 transition-transform hover:-translate-y-0.5 lg:w-80"
+              className="card-surface w-full shrink-0 overflow-hidden p-0 transition-transform hover:-translate-y-0.5 sm:w-72"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
-                <FileText className="h-6 w-6" />
-              </span>
-              <span className="flex-1">
+              <div className="relative aspect-[4/3] bg-navy-50">
+                <Image
+                  src="/images/catalogue/product-catalogue-cover.jpg"
+                  alt="Full Product Catalogue"
+                  fill
+                  className="object-contain p-4"
+                />
+              </div>
+              <div className="p-5">
                 <span className="block font-display text-sm font-semibold text-navy-900">
                   Full Product Catalogue
                 </span>
                 <span className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-teal-700">
                   <Download className="h-3.5 w-3.5" /> Download PDF
                 </span>
-              </span>
+              </div>
             </a>
           </div>
         </div>

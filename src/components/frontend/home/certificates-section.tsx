@@ -3,14 +3,18 @@ import Image from "next/image";
 import { prisma } from "@/common/prisma";
 import { ArrowRight, Download } from "lucide-react";
 
+const DEFAULT_CATALOGUE_URL = "/downloads/Quanta-Chem-Product-Catalogue.pdf";
+
 export async function CertificatesSection() {
   let certificates: Awaited<ReturnType<typeof getCerts>> = [];
+  let catalogueUrl = DEFAULT_CATALOGUE_URL;
   try {
-    certificates = await getCerts();
+    const [certs, setting] = await Promise.all([getCerts(), getCatalogueSetting()]);
+    certificates = certs;
+    catalogueUrl = setting?.value || DEFAULT_CATALOGUE_URL;
   } catch {
     certificates = [];
   }
-  if (certificates.length === 0) return null;
 
   return (
     <section className="section-y bg-navy-50/50">
@@ -47,6 +51,28 @@ export async function CertificatesSection() {
               </div>
             </div>
           ))}
+
+          <div className="card-surface overflow-hidden p-0">
+            <div className="relative aspect-[4/3] bg-navy-50">
+              <Image
+                src="/images/catalogue/product-catalogue-cover.jpg"
+                alt="Full Product Catalogue"
+                fill
+                className="object-contain p-4"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="font-display text-sm font-semibold text-navy-900">Full Product Catalogue</h3>
+              <p className="mt-1 text-xs text-navy-500">2,200+ laboratory reagents & fine chemicals</p>
+              <a
+                href={catalogueUrl}
+                download
+                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 hover:underline"
+              >
+                <Download className="h-3.5 w-3.5" /> Download PDF
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -55,4 +81,8 @@ export async function CertificatesSection() {
 
 function getCerts() {
   return prisma.certificate.findMany({ orderBy: { sortOrder: "asc" } });
+}
+
+function getCatalogueSetting() {
+  return prisma.setting.findUnique({ where: { key: "product_catalogue_url" } });
 }

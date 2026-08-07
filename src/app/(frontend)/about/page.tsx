@@ -90,11 +90,10 @@ export default function AboutPage() {
       </section>
 
       <section className="section-y bg-navy-50/40">
-        <div className="container-px mx-auto grid max-w-7xl gap-4 sm:grid-cols-3">
+        <div className="container-px mx-auto grid max-w-7xl gap-4 sm:grid-cols-2">
           {[
             { href: "/about/infrastructure", title: "Infrastructure", desc: "Explore our manufacturing facility and equipment." },
             { href: "/about/quality-policy", title: "Quality Policy", desc: "How we ensure consistent quality on every batch." },
-            { href: "/about/team", title: "Management Team", desc: "Meet the people behind Aarnav Scientific." },
           ].map((l) => (
             <Link key={l.href} href={l.href} className="card-surface p-6">
               <h3 className="font-display text-base font-semibold text-navy-900">{l.title}</h3>
