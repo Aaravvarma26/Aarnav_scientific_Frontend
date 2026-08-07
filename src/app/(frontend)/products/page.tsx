@@ -4,7 +4,7 @@ import { prisma } from "@/common/prisma";
 import { ProductCard } from "@/components/frontend/product/product-card";
 import { ProductFilters } from "@/components/frontend/product/product-filters";
 import { Pagination } from "@/components/common/pagination";
-import { FlaskConical } from "lucide-react";
+import { FlaskConical, Download, FileText } from "lucide-react";
 import type { Prisma } from "@prisma/client";
 
 export const metadata: Metadata = {
@@ -14,6 +14,16 @@ export const metadata: Metadata = {
 };
 
 const PAGE_SIZE = 24;
+const DEFAULT_CATALOGUE_URL = "/downloads/Quanta-Chem-Product-Catalogue.pdf";
+
+async function getCatalogueUrl() {
+  try {
+    const setting = await prisma.setting.findUnique({ where: { key: "product_catalogue_url" } });
+    return setting?.value || DEFAULT_CATALOGUE_URL;
+  } catch {
+    return DEFAULT_CATALOGUE_URL;
+  }
+}
 
 export default async function ProductsPage({
   searchParams,
@@ -56,17 +66,40 @@ export default async function ProductsPage({
     total = 0;
   }
   const totalPages = Math.ceil(total / PAGE_SIZE);
+  const catalogueUrl = await getCatalogueUrl();
 
   return (
     <div className="bg-navy-50/30">
       <div className="border-b border-navy-100 bg-white">
         <div className="container-px mx-auto max-w-7xl py-14">
-          <span className="eyebrow">Product Catalogue</span>
-          <h1 className="section-heading mt-4">2,200+ unique laboratory reagents & fine chemicals</h1>
-          <p className="mt-3 max-w-2xl text-navy-600">
-            Search by product name, SKU or CAS number, or filter by category to find exactly what
-            your lab or production line needs.
-          </p>
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <span className="eyebrow">Product Catalogue</span>
+              <h1 className="section-heading mt-4">2,200+ unique laboratory reagents & fine chemicals</h1>
+              <p className="mt-3 max-w-2xl text-navy-600">
+                Search by product name, SKU or CAS number, or filter by category to find exactly what
+                your lab or production line needs.
+              </p>
+            </div>
+
+            <a
+              href={catalogueUrl}
+              download
+              className="card-surface flex w-full shrink-0 items-center gap-4 p-5 transition-transform hover:-translate-y-0.5 lg:w-80"
+            >
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
+                <FileText className="h-6 w-6" />
+              </span>
+              <span className="flex-1">
+                <span className="block font-display text-sm font-semibold text-navy-900">
+                  Full Product Catalogue
+                </span>
+                <span className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-teal-700">
+                  <Download className="h-3.5 w-3.5" /> Download PDF
+                </span>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
 

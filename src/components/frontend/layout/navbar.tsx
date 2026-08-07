@@ -74,8 +74,8 @@ export function Navbar() {
             <div
               key={item.href}
               className="relative"
-              onMouseEnter={() => item.megaMenu && setOpenMega(item.title)}
-              onMouseLeave={() => item.megaMenu && setOpenMega(null)}
+              onMouseEnter={() => (item.megaMenu || ("children" in item && item.children)) && setOpenMega(item.title)}
+              onMouseLeave={() => (item.megaMenu || ("children" in item && item.children)) && setOpenMega(null)}
             >
               <Link
                 href={item.href}

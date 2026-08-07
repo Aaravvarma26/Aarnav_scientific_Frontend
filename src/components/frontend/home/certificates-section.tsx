@@ -17,11 +17,11 @@ export async function CertificatesSection() {
       <div className="container-px mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <span className="eyebrow">Certifications & Compliance</span>
+            <span className="eyebrow">Certifications & Downloads</span>
             <h2 className="section-heading mt-4">Quality you can verify</h2>
           </div>
           <Link href="/certifications" className="flex items-center gap-2 text-sm font-semibold text-teal-700 hover:underline">
-            View all certifications <ArrowRight className="h-4 w-4" />
+            View all certifications & downloads <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 

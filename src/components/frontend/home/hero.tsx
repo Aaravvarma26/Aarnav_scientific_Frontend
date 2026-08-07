@@ -45,7 +45,7 @@ export function Hero() {
           </div>
 
           <div className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/10 pt-8">
-            <Stat icon={ShieldCheck} value="3,400+" label="Products" />
+            <Stat icon={ShieldCheck} value="2,200+" label="Products" />
             <Stat icon={Globe2} value="33+" label="Countries Served" />
             <Stat icon={Factory} value="9+" label="Years Manufacturing" />
           </div>
