@@ -46,8 +46,6 @@ export const mainNav: readonly NavItem[] = [
       { title: "Company Story", href: "/about" },
       { title: "Infrastructure", href: "/about/infrastructure" },
       { title: "Quality Policy", href: "/about/quality-policy" },
-      { title: "Management Team", href: "/about/team" },
-      { title: "Certifications", href: "/certifications" },
     ],
   },
   {
@@ -55,6 +53,7 @@ export const mainNav: readonly NavItem[] = [
     href: "/products",
     megaMenu: true,
   },
+  { title: "Downloads", href: "/downloads" },
   {
     title: "Industries",
     href: "/industries",

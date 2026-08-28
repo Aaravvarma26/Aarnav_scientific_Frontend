@@ -68,7 +68,7 @@ export function Footer() {
               { label: "About Us", href: "/about" },
               { label: "Manufacturing", href: "/manufacturing" },
               { label: "Export", href: "/export" },
-              { label: "Certifications", href: "/certifications" },
+              { label: "Downloads", href: "/downloads" },
               { label: "Blog", href: "/blog" },
               { label: "Contact", href: "/contact" },
             ]}

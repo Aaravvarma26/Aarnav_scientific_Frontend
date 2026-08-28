@@ -99,6 +99,14 @@ export type CertificateData = {
   fileUrl?: string | null;
 };
 
+export type CatalogueItemData = {
+  id: string;
+  title: string;
+  description?: string | null;
+  imageUrl: string;
+  fileUrl: string;
+};
+
 export type PartnerData = {
   id: string;
   name: string;
