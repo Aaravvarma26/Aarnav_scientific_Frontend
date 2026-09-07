@@ -66,7 +66,7 @@ export function Footer() {
             title="Company"
             links={[
               { label: "About Us", href: "/about" },
-              { label: "Manufacturing", href: "/manufacturing" },
+              { label: "Packaging", href: "/pa" },
               { label: "Export", href: "/export" },
               { label: "Downloads", href: "/downloads" },
               { label: "Blog", href: "/blog" },

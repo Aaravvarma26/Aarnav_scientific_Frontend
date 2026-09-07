@@ -24,7 +24,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.brand} — Laboratory Reagents & Fine Chemicals`,
+    default: `${siteConfig.name} | ${siteConfig.brand}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

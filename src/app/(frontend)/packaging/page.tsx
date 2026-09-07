@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Factory, FlaskConical, PackageCheck, ClipboardCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Manufacturing",
+  title: "Packaging",
   description: "Explore Aarnav Scientific's manufacturing infrastructure, production process, quality assurance and packaging capabilities.",
 };
 
@@ -14,7 +14,7 @@ const steps = [
   { icon: PackageCheck, title: "Packaging & Export", desc: "Compliant packaging and documentation ready for domestic or export shipment." },
 ];
 
-export default function ManufacturingPage() {
+export default function PackagingPage() {
   return (
     <div className="bg-white">
       <div className="border-b border-navy-100 bg-navy-50/40">

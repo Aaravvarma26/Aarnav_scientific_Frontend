@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
 import { Users } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Management Team",
-  description: "Meet the management team behind Aarnav Scientific.",
-};
-
-const team = [
-  { name: "Sangeeta Varma", role: "Founder & Proprietor" },
-  { name: "Operations Lead", role: "Manufacturing & Quality" },
-  { name: "Export Manager", role: "International Sales & Logistics" },
-];
 
 export default function TeamPage() {
   return (

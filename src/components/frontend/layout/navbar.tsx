@@ -193,6 +193,21 @@ export function Navbar() {
 
       {mobileOpen && (
         <div className="border-t border-navy-100 bg-white px-6 py-4 xl:hidden">
+          <form onSubmit={handleSearchSubmit} className="mb-3 flex items-center gap-2 rounded-full border border-navy-200 bg-navy-50/50 px-4 py-2.5">
+            <Search className="h-4 w-4 shrink-0 text-navy-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+              placeholder="Search products…"
+              aria-label="Search products"
+              className="w-full bg-transparent text-sm text-navy-800 outline-none placeholder:text-navy-400"
+            />
+            <button type="submit" aria-label="Search products" className="shrink-0 text-xs font-semibold text-teal-700">
+              Go
+            </button>
+          </form>
+
           <div className="flex flex-col gap-1">
             {mainNav.map((item) => (
               <Link
