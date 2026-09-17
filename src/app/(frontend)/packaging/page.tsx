@@ -37,12 +37,20 @@ export default function PackagingPage() {
         </div>
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {["gallery-14", "gallery-18", "gallery-3", "gallery-8", "gallery-7", "gallery-2"].map((img) => (
-            <div key={img} className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-card">
-              <Image src={`/images/gallery/${img}.jpg`} alt="Manufacturing process" fill className="object-cover" />
-            </div>
-          ))}
-        </div>
+  {["gallery-36", "gallery-37", "gallery-43", "gallery-33", "gallery-35", "gallery-42"].map((img) => (
+    <div
+      key={img}
+      className="relative h-[320px] overflow-hidden rounded-3xl"
+    >
+      <Image
+        src={`/images/gallery/${img}.jpeg`}
+        alt="Manufacturing process"
+        fill
+        className="object-cover"
+      />
+    </div>
+  ))}
+</div>
       </div>
     </div>
   );
