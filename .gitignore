@@ -37,7 +37,7 @@ next-env.d.ts
 # uploads (local dev fallback storage — use Cloudinary/S3 in production)
 /public/uploads/*
 !/public/uploads/.gitkeep
-public/images/gallery/*
+
 
 # prisma
 /prisma/dev.db
